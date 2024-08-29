@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import ParkingComponenet from "./Component/ParkingApp";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Parkingsloat from "./Component/ParkingLots";
+import { Provider } from "react-redux";
+import store from "./Redux/Store/Store";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<ParkingComponenet />}></Route>
+            <Route path="/ParkingLots" element={<Parkingsloat />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </>
   );
 }
 
